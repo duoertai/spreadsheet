@@ -121,10 +121,10 @@ public class SpreadSheetImpl implements SpreadSheet{
 
         String id = cellId.toUpperCase();
 
-        if(numbers.containsKey(id)) {
-            return numbers.get(id);
-        } else {
+        if(formula.containsKey(id)) {
             return calculate(formula.get(id));
+        } else {
+            return numbers.containsKey(id) ? numbers.get(id) : 0;
         }
     }
 
@@ -146,7 +146,7 @@ public class SpreadSheetImpl implements SpreadSheet{
         spreadSheet.setCellValue("A5", "=(A1+ A2 )* a3");
         System.out.println("A5 = (13 + 14) * 27 <--> " + spreadSheet.getCellValue("A5"));
 
-        spreadSheet.setCellValue("A6", "=(A1+ A2 )/ 3");
-        System.out.println("A6 = (13 + 14) / 3 <--> " + spreadSheet.getCellValue("A6"));
+        spreadSheet.setCellValue("A6", "=(A18+ A2 )/ 14");
+        System.out.println("A6 = (0 + 14) / 14 <--> " + spreadSheet.getCellValue("A6"));
     }
 }
