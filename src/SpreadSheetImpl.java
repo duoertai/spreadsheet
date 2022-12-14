@@ -124,7 +124,7 @@ public class SpreadSheetImpl implements SpreadSheet{
         if(formula.containsKey(id)) {
             return calculate(formula.get(id));
         } else {
-            return numbers.containsKey(id) ? numbers.get(id) : 0;
+            return numbers.getOrDefault(id, 0);
         }
     }
 
